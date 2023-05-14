@@ -1,5 +1,6 @@
 package com.example.demo.hello;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class HelloController {
+	
+	@Autowired
+	private HelloService service;
 
 	/**
 	 * hello.htmlに遷移するメソッド
@@ -44,5 +48,24 @@ public class HelloController {
 		
 		// response.htmlに遷移する。
 		return "/hello/response";
+	}
+	
+	/**
+	 * クエリを実行した結果をdb.htmlに表示する。
+	 * @param 	id 検索対象のid
+	 * @param 	model	画面にデータを保持して遷移する。
+	 * @return	db.html
+	 */
+	@PostMapping("/hello/db")
+	public String postDbRequest(@RequestParam("text2")String id, Model model) {
+		
+		//1件検索
+		Employee employee = service.getEmployee(id);
+		
+		//検索結果をModelに登録
+		model.addAttribute("employee", employee);
+		
+		//db.htmlに遷移
+		return "/hello/db";
 	}
 }
