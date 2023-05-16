@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,9 @@ public class SignupController {
 	 * @return	/user/signup
 	 */
 	@GetMapping("/signup")
-	public String getSignup(Model model) {
+	public String getSignup(Model model, Locale locale) {
 		//性別を取得
-		Map<String, Integer>gender = service.getGenderMap();
+		Map<String, Integer>gender = service.getGenderMap(locale);
 		model.addAttribute(gender);
 		
 		//ユーザー登録画面に遷移する。
