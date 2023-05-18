@@ -21,34 +21,33 @@ import com.example.demo.application.service.UserApplicationService;
 @Controller
 @RequestMapping("/user")
 public class SignupController {
-	
+
 	@Autowired
 	private UserApplicationService service;
-	
+
 	/**
 	 * ユーザー登録画面を表示
-	 * 　
+	 * 
 	 * @param model
-	 * @return	/user/signup
+	 * @return /user/signup
 	 */
 	@GetMapping("/signup")
 	public String getSignup(Model model, Locale locale) {
-		//性別を取得
-		Map<String, Integer>gender = service.getGenderMap(locale);
-		model.addAttribute(gender);
-		
-		//ユーザー登録画面に遷移する。
+		// 性別を取得
+		Map<String, Integer> gender = service.getGenderMap(locale);
+		model.addAttribute("gender", gender);
+		// ユーザー登録画面に遷移する。
 		return "/user/signup";
 	}
-	
+
 	/**
 	 * ユーザー登録処理
 	 * 
-	 * @return	/login/login
+	 * @return /login/login
 	 */
 	@PostMapping("/signup")
 	public String postSignup() {
-		//ログイン画面にリダイレクト
+		// ログイン画面にリダイレクト
 		return "redirect:/login";
 	}
 }
