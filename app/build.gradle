@@ -35,6 +35,8 @@ dependencies {
 	implementation 'org.webjars:jquery:3.5.1'
 	// https://mvnrepository.com/artifact/org.webjars/bootstrap
 	implementation 'org.webjars:bootstrap:4.5.3'
+	// https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0'	
 }
 
 tasks.named('test') {
