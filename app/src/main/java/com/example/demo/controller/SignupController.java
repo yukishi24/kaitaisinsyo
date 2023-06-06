@@ -75,6 +75,8 @@ public class SignupController {
 		//formをMUserクラスに変換する
 		MUser user = modelMapper.map(form, MUser.class);
 		
+		user.setBirthday(form.birthday());
+		
 		//ユーザー登録
 		userService.signup(user);
 		
