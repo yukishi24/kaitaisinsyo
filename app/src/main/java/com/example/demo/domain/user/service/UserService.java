@@ -24,4 +24,12 @@ public interface UserService {
 	 * @return
 	 */
 	public List<MUser> getUsers();
+	
+	/**
+	 * ユーザー取得(1件)
+	 * 
+	 * @param userId
+	 * @return
+	 */
+	public MUser getUserOne(String userId);
 }

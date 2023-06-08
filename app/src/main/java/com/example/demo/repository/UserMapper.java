@@ -29,4 +29,11 @@ public interface UserMapper {
 	 * @return
 	 */
 	public List<MUser> findMany();
+
+	/**
+	 * ユーザー取得一件
+	 * 
+	 * @return
+	 */
+	public MUser findOne(String userId);
 }
