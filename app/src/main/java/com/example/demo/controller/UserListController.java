@@ -33,7 +33,7 @@ public class UserListController {
 	public String getUserList(Model model) {
 		// ユーザー一覧画面を表示
 		List<MUser> userList = userService.getUsers();
-
+		
 		// Modelに登録
 		model.addAttribute("userList", userList);
 		
