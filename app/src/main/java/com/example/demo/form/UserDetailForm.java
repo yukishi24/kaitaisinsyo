@@ -13,8 +13,8 @@ import lombok.Data;
 @Data
 public class UserDetailForm {
 	private String userId;
-	private String ppassword;
-	private String useerName;
+	private String password;
+	private String userName;
 	private Date birthday;
 	private Integer age;
 	private Integer gender;

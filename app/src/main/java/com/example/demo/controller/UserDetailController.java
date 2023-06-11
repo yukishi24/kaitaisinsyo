@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.user.model.MUser;
 import com.example.demo.domain.user.service.UserService;
@@ -19,7 +19,7 @@ import com.example.demo.form.UserDetailForm;
  *
  */
 @Controller
-@RestController("/user")
+@RequestMapping("/user")
 public class UserDetailController {
 	@Autowired
 	private UserService userService;
@@ -39,12 +39,12 @@ public class UserDetailController {
 	public String getUser(UserDetailForm form, Model model, @PathVariable("userId") String userId) {
 		// ユーザー一件取得
 		MUser user = userService.getUserOne(userId);
-
+		user.setPassword(null);
 		// MUserをformに変換
 		form = modelMapper.map(user, UserDetailForm.class);
 
 		// Modelに登録
-		model.addAttribute("UserDetailForm", form);
+		model.addAttribute("userDetailForm", form);
 
 		// ユーザー詳細画面を表示
 		return "user/detail";

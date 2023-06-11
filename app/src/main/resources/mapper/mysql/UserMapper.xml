@@ -29,7 +29,7 @@
 		select * from m_user
 	</select>
 
-	<select id="findOne" resultMap="user">
+	<select id="findOne" resultType="MUser">
 		select * from m_user where
 		user_id = #{userId}
 	</select>
