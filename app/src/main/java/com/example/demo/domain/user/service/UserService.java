@@ -24,7 +24,7 @@ public interface UserService {
 	 * @return
 	 */
 	public List<MUser> getUsers();
-	
+
 	/**
 	 * ユーザー取得(1件)
 	 * 
@@ -32,4 +32,20 @@ public interface UserService {
 	 * @return
 	 */
 	public MUser getUserOne(String userId);
+
+	/**
+	 * ユーザー更新(1件)
+	 * 
+	 * @param userId
+	 * @param password
+	 * @param userName
+	 */
+	public void updateUserOne(String userId, String password, String userName);
+
+	/**
+	 * ユーザー削除(1件)
+	 * 
+	 * @param userId
+	 */
+	public void deleteUserOne(String userId);
 }
