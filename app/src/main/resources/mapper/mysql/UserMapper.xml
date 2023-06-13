@@ -36,8 +36,7 @@
 
 	<!-- ユーザー1件更新 -->
 	<update id="updateOne">
-		update m_user set password = #{password}, userName =
-		#{userName} where user_id = #{userId}
+		update m_user set password = #{password}, user_name = #{userName} where user_id = #{userId}
 	</update>
 
 	<!-- ユーザー1件削除 -->
