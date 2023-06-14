@@ -23,7 +23,7 @@ public interface UserService {
 	 * 
 	 * @return
 	 */
-	public List<MUser> getUsers();
+	public List<MUser> getUsers(MUser user);
 
 	/**
 	 * ユーザー取得(1件)

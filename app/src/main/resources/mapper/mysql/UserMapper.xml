@@ -27,6 +27,14 @@
 	<!-- ユーザー複数取得 -->
 	<select id="findMany" resultType="MUser">
 		select * from m_user
+		<where>
+			<if test="userId != null">
+				user_id like '%' || #{userId} ||'%'
+			</if>
+			<if test="userName != null">
+				user_name like '%' || #{userName} ||'%'
+			</if>
+		</where>
 	</select>
 
 	<select id="findOne" resultType="MUser">
@@ -36,7 +44,8 @@
 
 	<!-- ユーザー1件更新 -->
 	<update id="updateOne">
-		update m_user set password = #{password}, user_name = #{userName} where user_id = #{userId}
+		update m_user set password = #{password}, user_name =
+		#{userName} where user_id = #{userId}
 	</update>
 
 	<!-- ユーザー1件削除 -->

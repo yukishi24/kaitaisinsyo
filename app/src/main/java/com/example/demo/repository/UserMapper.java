@@ -25,6 +25,14 @@ public interface UserMapper {
 	public int insertOne(MUser mUser);
 
 	/**
+	 * ユーザー取得(複数)
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public List<MUser> findMany(MUser user);
+
+	/**
 	 * ユーザー取得
 	 * 
 	 * @return
