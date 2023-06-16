@@ -16,7 +16,7 @@ public interface UserService {
 	 * 
 	 * @param mUser
 	 */
-	public void signup(MUser mUser);
+	public void signup(MUser user);
 
 	/**
 	 * ユーザー取得

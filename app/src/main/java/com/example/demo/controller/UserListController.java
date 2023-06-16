@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.user.model.MUser;
 import com.example.demo.domain.user.service.UserService;
-import com.example.demo.form.UserDetailForm;
 import com.example.demo.form.UserListForm;
 
 /**
@@ -30,7 +29,7 @@ public class UserListController {
 	private UserService userService;
 
 	@Autowired
-	private ModelMapper mapper;
+	private ModelMapper modelMapper;
 
 	/**
 	 * ユーザー一覧画面を表示する
@@ -38,10 +37,10 @@ public class UserListController {
 	 * @return
 	 */
 	@GetMapping("/list")
-	public String getUserList(@ModelAttribute UserDetailForm userDetailForm, Model model) {
+	public String getUserList(@ModelAttribute UserListForm form, Model model) {
 
 		// formをMUserクラスに変換
-		MUser user = mapper.map(model, MUser.class);
+		MUser user = modelMapper.map(form, MUser.class);
 
 		// ユーザー検索
 		List<MUser> userList = userService.getUsers(user);
@@ -53,17 +52,17 @@ public class UserListController {
 	}
 
 	/**
-	 * ユーザー検索処理
+	 * ユーザー検索処理 
 	 * 
 	 * @param userListForm
 	 * @param model
 	 * @return
 	 */
 	@PostMapping("/list")
-	public String postUserList(@ModelAttribute UserListForm userListForm, Model model) {
+	public String postUserList(@ModelAttribute UserListForm form, Model model) {
 
 		// fromをMUserクラスに変更する。
-		MUser user = mapper.map(userListForm, MUser.class);
+		MUser user = modelMapper.map(form, MUser.class);
 
 		// ユーザー検索
 		List<MUser> userList = userService.getUsers(user);
@@ -72,6 +71,6 @@ public class UserListController {
 		model.addAttribute("userList", userList);
 
 		// ユーザー一覧表示
-		return "user/list";
+		return "/user/list";
 	}
 }

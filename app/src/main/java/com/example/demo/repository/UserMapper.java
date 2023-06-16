@@ -33,13 +33,6 @@ public interface UserMapper {
 	public List<MUser> findMany(MUser user);
 
 	/**
-	 * ユーザー取得
-	 * 
-	 * @return
-	 */
-	public List<MUser> findMany();
-
-	/**
 	 * ユーザー取得一件
 	 * 
 	 * @return
