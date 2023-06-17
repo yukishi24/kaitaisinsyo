@@ -15,7 +15,7 @@
 		<div class="mb-4">
 
 			<form id="user-search-form" th:action="@{/user/list}" method="post" 
-				class="form-inline" th:object="${userList}">
+				class="form-inline" th:object="${userListForm}">
 				<div class="form-group">
 					<label for="userId" class="mr-2">ユーザーID</label> <input type="text"
 						class="form-control" th:field="*{userId}">
