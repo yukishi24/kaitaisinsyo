@@ -1,16 +1,15 @@
 version: '3.8'
- 
+
 services:
- my_sql:
-   platform: linux/amd64
-   image: mysql:8.0.29
-   environment:
-     MYSQL_ROOT_PASSWORD: root
-     TZ: Asia/Tokyo  #time-zoneの指定. 日本時間(東京)に設定 
-   volumes:
-     - data-volume:/var/lib/mysql
-   ports:
-     - 3306:3306
- 
-volumes:
- data-volume:
+  my_sql:
+    platform: linux/amd64
+    image: mysql:8.0.29
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: java
+      TZ: Asia/Tokyo  #time-zoneの指定. 日本時間(東京)に設定 
+    volumes:
+      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql.conf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - 3306:3306
